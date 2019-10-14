@@ -6,8 +6,16 @@
         xmlns:local="clr-namespace:QGISerWPF"
         xmlns:cefSharp="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
         mc:Ignorable="d"
-        Title="QGISer Demo" Height="450" Width="800">
+        Title="QGISer Demo"
+        Height="450"
+        Width="800">
     <Grid>
-        <cefSharp:ChromiumWebBrowser Grid.Row="0" Address="https://github.com/cefsharp/CefSharp/wiki/Frequently-asked-questions" />
+        <DockPanel>
+            <DockPanel LastChildFill="True" DockPanel.Dock="Top">
+                <Button Content="Locate" Name="LocateBtn" Click="LocateBtn_Click"></Button>
+            </DockPanel>
+            <cefSharp:ChromiumWebBrowser Name="BrowserView" />
+        </DockPanel>
+        
     </Grid>
 </Window>

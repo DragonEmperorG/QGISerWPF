@@ -22,7 +22,7 @@ namespace QGISerWPF
         {
             // Add Custom assembly resolver
             AppDomain.CurrentDomain.AssemblyResolve += Resolver;
-            //Any CefSharp references have to be in another method with NonInlining
+            // Any CefSharp references have to be in another method with NonInlining
             // attribute so the assembly rolver has time to do it's thing.
             InitializeCefSharp();
         }
@@ -34,6 +34,13 @@ namespace QGISerWPF
             settings.BrowserSubprocessPath = Path.Combine(AppDomain.CurrentDomain.SetupInformation.ApplicationBase,
                                                    Environment.Is64BitProcess ? "x64" : "x86",
                                                    "CefSharp.BrowserSubprocess.exe");
+
+            //settings.RegisterScheme(new CefCustomScheme()
+            //{
+            //    SchemeName = QGISerSchemeHandlerFactory.SchemeName,
+            //    SchemeHandlerFactory = new QGISerSchemeHandlerFactory()
+            //});
+
             // Make sure you set performDependencyCheck false
             Cef.Initialize(settings, performDependencyCheck: false, browserProcessHandler: null);
         }

@@ -23,6 +23,14 @@ namespace QGISerWPF
         public MainWindow()
         {
             InitializeComponent();
+
+            BrowserView.Address = AppDomain.CurrentDomain.BaseDirectory + @"QGISerMapModule/index.html";
+
+        }
+
+        private void LocateBtn_Click(object sender, RoutedEventArgs e)
+        { 
+            
         }
     }
 }
